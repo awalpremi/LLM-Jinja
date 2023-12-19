@@ -13,21 +13,25 @@ Jinja2 package. Pip or Conda as you like.
 ### Installing
 
 Clone the repository to your local machine.
-'''bash
+```bash
 git clone https://github.com/awalpremi/LLM-Jinja.git
-'''
+```
 
 ### Usage
 
 Here's an example of how to use the script:
 
+Put any text in the jinja template with variables in {{}}
+
+```jinja
+[
+    {"role": "system", "content": "You are a helpful assistant to a {{age}} y/o person."},
+    {"role": "user", "content": "Hello, {{name}}!"}
+]
+```
+Load the template in python and populate it with data.
+
 ```python
-from typing import Dict, Any, List
-import os
-from template import read_jinja_template
-
-data_vars: Dict[str, Any] = {'name': 'John Doe', 'age': 18}
-
 template_filename: str = 'Template.jinja'
 template_filepath: str = os.path.join(os.path.dirname(__file__), template_filename)
 template_list: List[Dict[str, Any]] = read_jinja_template(template_filepath, data_vars)
