@@ -12,12 +12,16 @@ Jinja2 package. Pip or Conda as you like.
 
 ### Installing
 
-Clone the repository to your local machine:
+Clone the repository to your local machine.
+'''bash
+git clone https://github.com/awalpremi/LLM-Jinja.git
+'''
 
-\```bash
-git clone <repository_url>
-\```
+### Usage
 
+Here's an example of how to use the script:
+
+```python
 from typing import Dict, Any, List
 import os
 from template import read_jinja_template
@@ -27,6 +31,7 @@ data_vars: Dict[str, Any] = {'name': 'John Doe', 'age': 18}
 template_filename: str = 'Template.jinja'
 template_filepath: str = os.path.join(os.path.dirname(__file__), template_filename)
 template_list: List[Dict[str, Any]] = read_jinja_template(template_filepath, data_vars)
+```
 
 In this example, the Template.jinja file is rendered with the variables {'name': 'John Doe', 'age': 18}, and the result is stored in template_list.
 
